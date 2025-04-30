@@ -87,11 +87,11 @@ const NexoraLandingPage = () => {
   const [activeSection, setActiveSection] = useState("hero");
 
   // Refs for sections
-  const heroRef = useRef(null);
-  const featuresRef = useRef(null);
-  const aboutRef = useRef(null);
-  const testimonialsRef = useRef(null);
-  const ctaRef = useRef(null);
+  const heroRef = useRef<HTMLElement>(null);
+  const featuresRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef<HTMLElement>(null);
+  const testimonialsRef = useRef<HTMLElement>(null);
+  const ctaRef = useRef<HTMLElement>(null);
 
   // Scroll Hook for Parallax
   const { scrollYProgress: heroScroll } = useScroll({
@@ -112,7 +112,6 @@ const NexoraLandingPage = () => {
     ["rgba(17, 24, 39, 0.9)", "rgba(59, 130, 246, 0.2)"]
   );
 
-  // Debounced Scroll Handler
   const handleScroll = debounce(() => {
     const currentScrollY = window.scrollY;
     setScrollPosition(currentScrollY);
@@ -273,11 +272,11 @@ const NexoraLandingPage = () => {
     "Buatkan saya puisi tentang teknologi",
   ];
 
-  const handleSuggestionClick = (suggestion) => {
+  const handleSuggestionClick = (suggestion: string) => {
     setChatInput(suggestion);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (chatInput.trim()) {
       window.open("https://nexora2-5.vercel.app/", "_blank");
@@ -287,12 +286,22 @@ const NexoraLandingPage = () => {
   return (
     <div className="bg-gray-900 text-white min-h-screen relative overflow-hidden">
       {/* Particle Background */}
-      <ParticlesBg
-        type="cobweb"
-        bg={{ position: "absolute", zIndex: 0 }}
-        num={30} // Reduced particle count
-        color="#ffffff"
-      />
+      <div
+        style={{
+          position: "absolute",
+          zIndex: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <ParticlesBg
+          type="cobweb"
+          bg={true}
+          num={30} // Reduced particle count
+          color="#ffffff"
+        />
+      </div>
+
       {/* Animated Stars */}
       <div className="fixed inset-0 z-0">
         {Array(50) // Reduced star count
