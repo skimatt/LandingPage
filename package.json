@@ -10,12 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.5",
     "@tailwindcss/vite": "^4.1.4",
-    "framer-motion": "^12.7.4",
+    "framer-motion": "^12.9.2",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.503.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "tailwindcss": "^4.1.4"
+    "particles-bg": "^2.5.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-particles": "^2.12.2",
+    "tailwindcss": "^4.1.4",
+    "tsparticles": "^3.8.1",
+    "use-sound": "^5.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
